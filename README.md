@@ -22,10 +22,25 @@ TinyGo Keeb Tour 2025で、頒布されたマイクロパッド[zero-kb02](https
 
 [TinyGo](https://tinygo.org/) で開発しました。  
 
-キーマトリクスを読み取り、押されたキーの組み合わせをチェックして、対応する音階の音を圧電サウンダーから出力しています。  
+キーマトリクスを読み取り、押されたキーの組み合わせをチェックして、対応する音階を圧電サウンダーから出力しています。  
+
+### ファームウェアのインストール  
+
+ソース・ファイルを公開していますが、コンパイルが面倒な方は、以下の手順でコンパイル済みのファームウェアをインストールして下さい。
+
+1. 以下のKeyx3Octのファームウェア(UF2ファイル)をダウンロードして下さい。
+
+> [uf2/7Keyx3Oct.uf2](uf2/7Keyx3Oct.uf2)
+
+2. zero-kb02上のマイコンボード RP2040-ZeroにあるBOOTSELボタンを押しながら、RESETボタンを押して下さい。  
+zero-kb02がRPI-RP2ドライブとしてマウントされます。  
+
+3. ダウンロードしたKeyx3OctファームウェアのUF2ファイルをPicoのRPI-RP2ドライブにコピーして下さい。
+RP2040-Zeroが、自動的に再起動して、インストールと初期化が完了します。
 
 ### 開発環境のインストール  
 
+ソースコードから、インストールしたい方は、開発環境を導入して下さい。  
 ここでは、Windows11上での開発環境構築について解説します。他のOSについては、本家サイトの解説をお読み下さい。  
 
 1. パッケージ管理ツールscoopのサイトを開き、導入スクリプトを入手して下さい。  
@@ -105,30 +120,6 @@ tinygo version 0.38.0 windows/amd64
 
 オクターブキーを押していない時は、すべて 4 オクターブに設定されます。  
 
-
-### 開発環境のインストール  
-
-ここでは、Windows11上での開発環境構築について解説します。他のOSについては、本家サイトの解説をお読み下さい。  
-
-1. パッケージ管理ツールscoopのサイトを開き、導入スクリプトを入手する。  
-
-	[scoop](https://github.com/ScoopInstaller/Scoop)
-
-2. Powershellを開いて、以下のスクリプトを実行する。  
-
-> \> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser  
-> \> Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression  
-
-
-3. 以下のコマンドを実行して、環境構築は終わり。  
-
-> \>scoop install go tinygo
-
-4. 以下のコマンドを実行できれば、正常にインストールできています。  
-
-> \>tinygo version  
-tinygo version 0.38.0 windows/amd64 
-(using go version go1.24.4 and LLVM version 19.1.2)
 
 ## 数字譜集:
 
